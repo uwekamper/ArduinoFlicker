@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+    	<h1>Generate Arduino Flicker-Code</h1>
+		<div id="flicker-generator"></div>
+		<hr>
+      	<div class="footer">
+        	<p>&copy; Uwe Kamper 2013</p>
+      	</div>
+    </div> <!-- /container -->
+
+	<script id="colorpicker-template" type="text/x-handlebars-template">
+		<form class="well form-horizontal">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="inputRed">Red:</label>
+				<div class="controls">
+					<input type="text" id="inputRed" value="{{ red }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputGreen">Green:</label>
+				<div class="controls">
+					<input type="text" id="inputGreen" value="{{ green }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputGreen">Blue:</label>
+				<div class="controls">
+					<input type="text" id="inputBlue" value="{{ blue }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="colorDisplay">Color:</label>
+				<div class="controls" id="colordisplay-container">
+					
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+		    		<button type="submit" id="submitButton" class="btn btn-primary">Generate and transmit</button>
+				</div>
+		</fieldset>
+		</form>
+	</script>
+	
+	<script id="colordisplay-template" type="text/x-handlebars-template">
+		<div id="colorDisplay" class="well" style="width: 180px; background-color: rgb({{ red }}, {{ green }}, {{ blue }});"></div>
+	</script>
+	
+	<script id="flickerdisplay-template" type="text/x-handlebars-template">
+		<div id="flickerDisplay" class="well" style="width: 660px; height: 500px; background-color: #000;"></div>
+		<div>
+			<p>Bits transmitted: <span id="transmitted">0</span></p>
+			<p>Data bits transmitted: <span id="current_data_bit">0</span></p>
+			<p>Bit-History:<br/>
+				<span id="bithistory"></span>
+			</p>
+		</div>
+		<form class="well form-horizontal">
+			<fieldset>
+				<button type="submit" id="backButton" class="btn btn-danger">Stop transmission</button>
+			</fieldset>
+		</form>
+	</script>
+	
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/backbone-min.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script src="js/flickergenerator.js"></script>
+	<!--
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+	-->
+
+  </body>
+</html>
